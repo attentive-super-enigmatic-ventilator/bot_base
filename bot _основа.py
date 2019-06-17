@@ -1,4 +1,3 @@
-
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -270,6 +269,17 @@ def create_keyboard():
     keyboard = keyboard.get_keyboard()
 
     return keyboard
+def create_klav(knopki):
+    keyboard = VkKeyboard(one_time=True)
+    for b in knopki:
+        if b=='new_line':
+            keyboard.add_line()
+        else:
+            keyboard.add_button(b, color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
+    keyboard = keyboard.get_keyboard()
+    return keyboard
 def create_grafic():
     keyboard = VkKeyboard(one_time=True)
     keyboard.add_button('На сегодня',color=VkKeyboardColor.PRIMARY)
@@ -281,30 +291,40 @@ def create_stupen():
     keyboard.add_button('Бакалавриат', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Магистратура', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Аспирантура', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_budshet():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('Бюджет(А)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('По договору(А)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_budshetm():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('Бюджет(М)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('По договору(М)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_budshetb():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('Бюджет(Б)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('По договору(Б)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_nabor():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('Целевой набор(А)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Дополнительный набор(А)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_och():
@@ -312,6 +332,8 @@ def create_och():
     keyboard.add_button('Очная(М)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Заочная(М)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Очно-заочная(М)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_ochn():
@@ -319,30 +341,40 @@ def create_ochn():
     keyboard.add_button('Очная(Б)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Заочная(Б)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Очно-заочная(Б)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_uni():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('ИДДО(М_з)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('ИПЭЭф(М_з)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_uni1():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('ИнЭИ(М_оз)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('ИПЭЭф, ИЭТ или ГПИ(М_оз)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_exams():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('Со вступительными экзаменами(б)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Без вступительных экзаменов(б)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_vst():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('Со вступительными экзаменами(б_д_о)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('Без вступительных экзаменов(б_д_о)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_inst():
@@ -350,12 +382,16 @@ def create_inst():
     keyboard.add_button('ИПЭЭф(б_д_з)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('ИДДО(б_д_з)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('другой институт(б_д_з)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 def create_insti():
     keyboard= VkKeyboard(one_time=True)
     keyboard.add_button('ИПЭЭФ(б_д_оз)', color=VkKeyboardColor.POSITIVE)
     keyboard.add_button('другой институт(б_д_оз)', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
     keyboard=keyboard.get_keyboard()
     return keyboard
 flag=True
@@ -366,7 +402,7 @@ ignor=set()
 for event in VkLongPoll(vk_session).listen():
     keyboard = create_keyboard()
     keyboard1 = create_grafic()
-    keyboard2 = create_stupen()
+    #keyboard2 = create_stupen()
     keyboard3 = create_budshet()
     keyboard4 = create_nabor()
     keyboard5 = create_budshetm()
@@ -440,7 +476,7 @@ for event in VkLongPoll(vk_session).listen():
                 vk.messages.send(user_id=event.user_id,
                                  random_id=random.randint(1,10**9),
                                  message='Какую ступень образования Вы хотите получить?',
-                                 keyboard = keyboard2)
+                                 keyboard = create_klav(['Бакалавриат','Магистратура','Аспирантура']))
             elif text == 'график работы приемной комиссии':
                 vk.messages.send(user_id=event.user_id,
                                  random_id=random.randint(1,10**9),
@@ -580,6 +616,10 @@ for event in VkLongPoll(vk_session).listen():
                 vk.messages.send(user_id=event.user_id,
                                  random_id=random.randint(1,10**9),
                                  message=student['Б_дог_оч_заоч_другие'], keyboard = keyboard)
+            elif text == 'на главную':
+                vk.messages.send(user_id=event.user_id,
+                                 random_id=random.randint(1,10**9),
+                                 message='Вы перемещены на главную страницу', keyboard = keyboard)
             else:
                 vk.messages.send(user_id=event.user_id,
                                  random_id=random.randint(1,10**9),
