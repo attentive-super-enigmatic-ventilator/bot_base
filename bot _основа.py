@@ -286,341 +286,236 @@ def create_grafic():
     keyboard.add_button('На эту неделю',color=VkKeyboardColor.PRIMARY)
     keyboard=keyboard.get_keyboard()
     return keyboard
-def create_stupen():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Бакалавриат', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Магистратура', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Аспирантура', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_budshet():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Бюджет(А)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('По договору(А)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_budshetm():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Бюджет(М)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('По договору(М)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_budshetb():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Бюджет(Б)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('По договору(Б)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_nabor():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Целевой набор(А)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Дополнительный набор(А)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_och():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Очная(М)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Заочная(М)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Очно-заочная(М)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_ochn():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Очная(Б)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Заочная(Б)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Очно-заочная(Б)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_uni():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('ИДДО(М_з)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('ИПЭЭф(М_з)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_uni1():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('ИнЭИ(М_оз)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('ИПЭЭф, ИЭТ или ГПИ(М_оз)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_exams():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Со вступительными экзаменами(б)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Без вступительных экзаменов(б)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_vst():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('Со вступительными экзаменами(б_д_о)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Без вступительных экзаменов(б_д_о)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_inst():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('ИПЭЭф(б_д_з)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('ИДДО(б_д_з)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('другой институт(б_д_з)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
-def create_insti():
-    keyboard= VkKeyboard(one_time=True)
-    keyboard.add_button('ИПЭЭФ(б_д_оз)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('другой институт(б_д_оз)', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_line()
-    keyboard.add_button('На главную',color=VkKeyboardColor.NEGATIVE)
-    keyboard=keyboard.get_keyboard()
-    return keyboard
 flag=True
 date=datetime.datetime.today()
 day=date.weekday()
 print(day)
 ignor=set()
-for event in VkLongPoll(vk_session).listen():
-    keyboard = create_keyboard()
-    keyboard1 = create_grafic()
-    #keyboard2 = create_stupen()
-    keyboard3 = create_budshet()
-    keyboard4 = create_nabor()
-    keyboard5 = create_budshetm()
-    keyboard6 = create_och()
-    keyboard7 = create_uni()
-    keyboard8 = create_uni1()
-    keyboard9 = create_budshetb()
-    keyboard10 = create_exams()
-    keyboard11 = create_ochn()
-    keyboard12 = create_vst()
-    keyboard13 = create_inst()
-    keyboard14 = create_insti()
-    date=datetime.datetime.today()
-    day=date.weekday()
-    #print(day)
-    date=datetime.date.today()
-    if day==6 and flag==True:
-        flag=False
-        nov=''
-        for key in t.novosti:
-            if check_date(key,180):
-                nov+=t.novosti[key]+'\n'+'\n'
-        try:
-            send_to_all(nov)
-        except:
-            print('Нет новостей')
-    elif day!=6:
-        flag=True
-    if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
-        if event.from_user:
-            text=event.text
-            text=text.lower()
-            if text=='работает ли сегодня приемная комиссия?' or text =='на сегодня':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=t.timetable[day],
-                                 keyboard=keyboard)
-            elif text =='когда вообще работает приемная комиссия?' or text =='на эту неделю':
-                for i in range(len(t.timetable)):
-                    text1 = text1 + t.timetable[i] + '\n'
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=text1, keyboard = keyboard)
-                text1 = ''
-            elif text == 'адрес' or text == 'какой адрес?' or text == 'скажи адрес':
-                text3 = 'Адрес: ' + t.adress2 + '\n' + 'Как дойти: ' + t.adress1
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=text3, keyboard = keyboard)
-            elif text == 'контактная информация' or text =='контактные данные':
-                text2 = t.telefon + '\n' + t.email
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=text2, keyboard = keyboard)
-            elif text == 'начать':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Здравствуйте! Я очень рад Вам!', keyboard = keyboard)
-            elif text == 'новости':
+while True:
+    try:
+        for event in VkLongPoll(vk_session).listen():
+            keyboard = create_keyboard()
+            keyboard1 = create_grafic()
+            date=datetime.datetime.today()
+            day=date.weekday()
+            #print(day)
+            date=datetime.date.today()
+            if day==6 and flag==True:
+                flag=False
                 nov=''
                 for key in t.novosti:
-                    #print(key)
                     if check_date(key,180):
                         nov+=t.novosti[key]+'\n'+'\n'
-                
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=nov,
-                                 keyboard = keyboard)
-            elif text == 'информация о поступлении':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Какую ступень образования Вы хотите получить?',
-                                 keyboard = create_klav(['Бакалавриат','Магистратура','Аспирантура']))
-            elif text == 'график работы приемной комиссии':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Выберите: ',
-                                 keyboard = keyboard1)
-            elif text == 'отписаться/подписаться на новости':
-                if event.user_id not in ignor:
-                    ignor.add(event.user_id)
-                    vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Теперь Вы отписаны от автоматичечкой рассылки новостей',
-                                 keyboard = keyboard)
+                try:
+                    send_to_all(nov)
+                except:
+                    print('Нет новостей')
+            elif day!=6:
+                flag=True
+            if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
+                if event.from_user:
+                    text=event.text
+                    text=text.lower()
+                    if text=='работает ли сегодня приемная комиссия?' or text =='на сегодня':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=t.timetable[day],
+                                         keyboard=keyboard)
+                    elif text =='когда вообще работает приемная комиссия?' or text =='на эту неделю':
+                        for i in range(len(t.timetable)):
+                            text1 = text1 + t.timetable[i] + '\n'
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=text1, keyboard = keyboard)
+                        text1 = ''
+                    elif text == 'адрес' or text == 'какой адрес?' or text == 'скажи адрес':
+                        text3 = 'Адрес: ' + t.adress2 + '\n' + 'Как дойти: ' + t.adress1
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=text3, keyboard = keyboard)
+                    elif text == 'контактная информация' or text =='контактные данные':
+                        text2 = t.telefon + '\n' + t.email
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=text2, keyboard = keyboard)
+                    elif text == 'начать':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Здравствуйте! Я очень рад Вам!', keyboard = keyboard)
+                    elif text == 'новости':
+                        nov=''
+                        for key in t.novosti:
+                            #print(key)
+                            if check_date(key,180):
+                                nov+=t.novosti[key]+'\n'+'\n'
+                        
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=nov,
+                                         keyboard = keyboard)
+                    elif text == 'информация о поступлении':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Какую ступень образования Вы хотите получить?',
+                                         keyboard = create_klav(['Бакалавриат','Магистратура','Аспирантура']))
+                    elif text == 'график работы приемной комиссии':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Выберите: ',
+                                         keyboard = keyboard1)
+                    elif text == 'отписаться/подписаться на новости':
+                        if event.user_id not in ignor:
+                            ignor.add(event.user_id)
+                            vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Теперь Вы отписаны от автоматичечкой рассылки новостей',
+                                         keyboard = keyboard)
 
-                else:
-                    ignor.remove(event.user_id)
-                    vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Теперь Вы подписаны на автоматичечкую рассылку новостей',
-                                 keyboard = keyboard)
-            elif text == 'аспирантура':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете на бюджет или по договору?', keyboard = keyboard3)
-            elif text =='бюджет(а)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете по целевому набору или по дополнительному?', keyboard = keyboard4)
-            elif text =='целевой набор(а)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['А_бюд_обыч'], keyboard = keyboard)
-            elif text =='дополнительный набор(а)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['А_бюд_доп'], keyboard = keyboard)
-            elif text =='по договору(а)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['А_дог'], keyboard = keyboard)
-            elif text =='магистратура':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете на бюджет или по договору?', keyboard = keyboard5)
-            elif text == 'бюджет(м)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['М_бюд'], keyboard = keyboard)
-            elif text == 'по договору(м)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Какую форму обучения вы выбираете?', keyboard = keyboard6)
-            elif text == 'очная(м)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['М_дог_оч'], keyboard = keyboard)
-            elif text =='заочная(м)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете в ИДДО или в ИПЭЭф ?', keyboard = keyboard7)
-            elif text == 'иддо(м_з)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['М_дог_заоч_ИДДО'], keyboard = keyboard)
-            elif text == 'ипээф(м_з)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['М_дог_заоч_ИПЭЭф'], keyboard = keyboard)
-            elif text == 'очно-заочная(м)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете в ИнЭИ, ИПЭЭф, ИЭТ или ГПИ?', keyboard = keyboard8)
-            elif text == 'инэи(м_оз)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['М_дог_оч_заоч_ИнЭИ'], keyboard = keyboard)
-            elif text == 'ипээф, иэт или гпи(м_оз)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['М_дог_оч_заоч_ИПЭЭф_ИэТ_ГПИ'], keyboard = keyboard)
-            elif text == 'бакалавриат':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете на бюджет или по договору?', keyboard = keyboard9) 
-            elif text =='бюджет(б)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете со вступительными экзаменами или без?', keyboard = keyboard10)
-            elif text =='со вступительными экзаменами(б)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_бюд_ДВИ'], keyboard = keyboard)
-            elif text =='без вступительных экзаменов(б)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_бюд_неДВИ'], keyboard = keyboard)
-            elif text =='по договору(б)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Какую форму обучения Вы выбираете?', keyboard = keyboard11)
-            elif text == 'очная(б)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете со вступительными экзаменами или без?', keyboard = keyboard12)
-            elif text == 'со вступительными экзаменами(б_д_о)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_дог_оч_ДВИ'], keyboard = keyboard)
-            elif text == 'без вступительных экзаменов(б_д_о)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_дог_оч_неДВИ'], keyboard = keyboard)
-            elif text == 'заочная(б)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете в ИДДО, ИПЭЭф или в другой институт? ', keyboard = keyboard13)
-            elif text == 'ипээф(б_д_з)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_дог_заоч_ИПЭЭф'], keyboard = keyboard)
-            elif text == 'иддо(б_д_з)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_дог_заоч_ИДДО'], keyboard = keyboard)
-            elif text == 'другой институт(б_д_з)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_дог_заоч_другие'], keyboard = keyboard)
-            elif text == 'очно-заочная(б)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы поступаете в ИПЭЭф или в другой институт?', keyboard = keyboard14)
-            elif text == 'ипээф(б_д_оз)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_дог_оч_заоч_ИПЭЭф'], keyboard = keyboard)
-            elif text == 'другой институт(б_д_оз)':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message=student['Б_дог_оч_заоч_другие'], keyboard = keyboard)
-            elif text == 'на главную':
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Вы перемещены на главную страницу', keyboard = keyboard)
-            else:
-                vk.messages.send(user_id=event.user_id,
-                                 random_id=random.randint(1,10**9),
-                                 message='Извините, я вас не понимаю. Используйте команды, которые вызываются с помощью кнопок снизу.', keyboard = keyboard)
+                        else:
+                            ignor.remove(event.user_id)
+                            vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Теперь Вы подписаны на автоматичечкую рассылку новостей',
+                                         keyboard = keyboard)
+                    elif text == 'аспирантура':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете на бюджет или по договору?', keyboard = create_klav(['Бюджет(А)','По договору(А)']))
+                    elif text =='бюджет(а)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете по целевому набору или по дополнительному?', keyboard = create_klav(['Целевой набор(А)','Дополнительный набор(А)']))
+                    elif text =='целевой набор(а)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['А_бюд_обыч'], keyboard = keyboard)
+                    elif text =='дополнительный набор(а)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['А_бюд_доп'], keyboard = keyboard)
+                    elif text =='по договору(а)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['А_дог'], keyboard = keyboard)
+                    elif text =='магистратура':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете на бюджет или по договору?', keyboard = create_klav(['Бюджет(М)','По договору(М)']))
+                    elif text == 'бюджет(м)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['М_бюд'], keyboard = keyboard)
+                    elif text == 'по договору(м)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Какую форму обучения вы выбираете?', keyboard = create_klav(['Очная(М)','Заочная(М)','Очно-заочная(М)']))
+                    elif text == 'очная(м)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['М_дог_оч'], keyboard = keyboard)
+                    elif text =='заочная(м)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете в ИДДО или в ИПЭЭф ?', keyboard = create_klav(['ИДДО(М_з)','ИПЭЭф(М_з)']))
+                    elif text == 'иддо(м_з)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['М_дог_заоч_ИДДО'], keyboard = keyboard)
+                    elif text == 'ипээф(м_з)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['М_дог_заоч_ИПЭЭф'], keyboard = keyboard)
+                    elif text == 'очно-заочная(м)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете в ИнЭИ, ИПЭЭф, ИЭТ или ГПИ?', keyboard = create_klav(['ИнЭИ(М_оз)','ИПЭЭф, ИЭТ или ГПИ(М_оз)']))
+                    elif text == 'инэи(м_оз)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['М_дог_оч_заоч_ИнЭИ'], keyboard = keyboard)
+                    elif text == 'ипээф, иэт или гпи(м_оз)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['М_дог_оч_заоч_ИПЭЭф_ИэТ_ГПИ'], keyboard = keyboard)
+                    elif text == 'бакалавриат':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете на бюджет или по договору?', keyboard = create_klav(['Бюджет(Б)','По договору(Б)'])) 
+                    elif text =='бюджет(б)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете со вступительными экзаменами или без?', keyboard = create_klav(['Со вступительными экзаменами(б)','Без вступительных экзаменов(б)']))
+                    elif text =='со вступительными экзаменами(б)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_бюд_ДВИ'], keyboard = keyboard)
+                    elif text =='без вступительных экзаменов(б)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_бюд_неДВИ'], keyboard = keyboard)
+                    elif text =='по договору(б)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Какую форму обучения Вы выбираете?', keyboard = create_klav(['Очная(Б)','Заочная(Б)','Очно-заочная(Б)']))
+                    elif text == 'очная(б)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете со вступительными экзаменами или без?', keyboard = create_klav(['Со вступительными экзаменами(б_д_о)','Без вступительных экзаменов(б_д_о)']))
+                    elif text == 'со вступительными экзаменами(б_д_о)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_дог_оч_ДВИ'], keyboard = keyboard)
+                    elif text == 'без вступительных экзаменов(б_д_о)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_дог_оч_неДВИ'], keyboard = keyboard)
+                    elif text == 'заочная(б)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете в ИДДО, ИПЭЭф или в другой институт? ', keyboard = create_klav(['ИПЭЭф(б_д_з)','ИДДО(б_д_з)','другой институт(б_д_з)']))
+                    elif text == 'ипээф(б_д_з)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_дог_заоч_ИПЭЭф'], keyboard = keyboard)
+                    elif text == 'иддо(б_д_з)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_дог_заоч_ИДДО'], keyboard = keyboard)
+                    elif text == 'другой институт(б_д_з)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_дог_заоч_другие'], keyboard = keyboard)
+                    elif text == 'очно-заочная(б)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы поступаете в ИПЭЭф или в другой институт?', keyboard = create_klav(['ИПЭЭФ(б_д_оз)','другой институт(б_д_оз)']))
+                    elif text == 'ипээф(б_д_оз)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_дог_оч_заоч_ИПЭЭф'], keyboard = keyboard)
+                    elif text == 'другой институт(б_д_оз)':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message=student['Б_дог_оч_заоч_другие'], keyboard = keyboard)
+                    elif text == 'на главную':
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Вы перемещены на главную страницу', keyboard = keyboard)
+                    else:
+                        vk.messages.send(user_id=event.user_id,
+                                         random_id=random.randint(1,10**9),
+                                         message='Извините, я вас не понимаю. Используйте команды, которые вызываются с помощью кнопок снизу.', keyboard = keyboard)
+    except:
+        if day==6 and flag==True:
+            flag=False
+            nov=''
+            for key in t.novosti:
+                if check_date(key,180):
+                    nov+=t.novosti[key]+'\n'+'\n'
+            try:
+                send_to_all(nov)
+            except:
+                print('Нет новостей')
+        elif day!=6:
+            flag=True
+        continue
